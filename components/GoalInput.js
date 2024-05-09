@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Button, Image, Modal, StyleSheet, TextInput, View } from "react-native";
+import {
+  Button,
+  Image,
+  Modal,
+  StyleSheet,
+  TextInput,
+  View,
+} from "react-native";
 
 const GoalInput = (props) => {
   const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -21,7 +28,10 @@ const GoalInput = (props) => {
   return (
     <Modal visible={props.modalIsVisible} animationType="slide">
       <View style={styles.inputContainer}>
-        <Image style={styles.image} source={require('../assets/images/goal.png')}/>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/goal.png")}
+        />
         <TextInput
           style={styles.textInput}
           placeholder="Your goal!"
@@ -30,10 +40,14 @@ const GoalInput = (props) => {
         />
         <View style={styles.buttonsContainer}>
           <View style={styles.button}>
-            <Button title="Add goal?" onPress={addGoalHandler} />
+            <Button title="Cancel" onPress={closeModal} color="#f31282" />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" onPress={closeModal} />
+            <Button
+              title="Add goal"
+              onPress={addGoalHandler}
+              color="#b180f0"
+            />
           </View>
         </View>
       </View>
@@ -49,13 +63,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-    backgroundColor: "#311b6b"
+    backgroundColor: "#311b6b",
   },
   textInput: {
     borderWidth: 1,
-    padding: 8,
-    borderColor: "#cccccc",
+    padding: 16,
+    borderColor: "#e4d0ff",
+    backgroundColor: "#e4d0ff",
+    borderRadius: 6,
     width: "100%",
+    color: "#120438",
   },
   buttonsContainer: {
     marginTop: 16,
@@ -65,9 +82,9 @@ const styles = StyleSheet.create({
     width: 100,
     marginHorizontal: 8,
   },
-  image:{
+  image: {
     width: 100,
     height: 100,
-    margin: 20
-  }
+    margin: 20,
+  },
 });
